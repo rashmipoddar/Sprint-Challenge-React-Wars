@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row } from 'reactstrap'; 
+import styled from 'styled-components';
 
-// import './App.css';
 import Character from './components/Character';
+import backgroundImage from './sw-bg.jpg';
+
+const WrapperDiv = styled.div`
+  background-image: url(${backgroundImage});
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+`;
+
+const WrapperHeader = styled.h1`
+  text-align: center;
+  padding: 10px;
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -28,8 +41,8 @@ const App = () => {
 
   return (
     
-    <div>
-      <h1>React Wars</h1>
+    <WrapperDiv>
+      <WrapperHeader>Star War Characters</WrapperHeader>
       <Container>
         <Row>
           {chars.map((char, index) => {
@@ -46,7 +59,7 @@ const App = () => {
           })}
         </Row>
       </Container>
-    </div>
+    </WrapperDiv>
   );
 }
 
