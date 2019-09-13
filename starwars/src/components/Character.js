@@ -5,7 +5,7 @@ import { Card, CardHeader, CardBody,CardTitle, CardText, Col } from "reactstrap"
 
 const Character = (props) => {
   return (
-    <Col xs="6" key={props.key}>
+    <Col xs="6" >
       <Card className="text-center" >
       <CardHeader style={{ backgroundColor: "rgb(206, 168, 111)" }}>Name: {props.name}</CardHeader>
       <CardBody style={{ backgroundColor: "rgb(250, 224, 215)" }}>
