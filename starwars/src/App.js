@@ -4,7 +4,8 @@ import { Container, Row } from 'reactstrap';
 import styled from 'styled-components';
 
 import Character from './components/Character';
-import backgroundImage from './sw-bg.jpg';
+import Pagination from './components/Pagination';
+import backgroundImage from './Images/sw-bg.jpg';
 
 const WrapperDiv = styled.div`
   background-image: url(${backgroundImage});
@@ -27,17 +28,28 @@ const App = () => {
   // sync up with, if any.
 
   const [ chars, setChars ] = useState([]);
+  const [ page, setPage ] = useState(1);
+
+  const pageChange = () => {
+    setPage(page + 1);
+  }
+
+  const previousPage = () => {
+    setPage(page - 1);
+  }
+
 
   useEffect(() => {
-    axios.get('https://swapi.co/api/people/') 
+    axios.get(`https://swapi.co/api/people/?page=${page}`) 
       .then(response => {
         console.log('Api response is ', response);
+        // console.log(response.data.response[0].films);
         setChars(response.data.results);
       })
       .catch(error => {
         console.log('Error in getting data ', error);
       })
-  }, [])
+  }, [page])
 
   return (
     
@@ -59,6 +71,10 @@ const App = () => {
           })}
         </Row>
       </Container>
+      <Pagination 
+        pageChange={pageChange} 
+        previousPage={previousPage}
+      />
     </WrapperDiv>
   );
 }
