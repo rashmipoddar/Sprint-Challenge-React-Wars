@@ -43,7 +43,6 @@ const App = () => {
     axios.get(`https://swapi.co/api/people/?page=${page}`) 
       .then(response => {
         console.log('Api response is ', response);
-        // console.log(response.data.response[0].films);
         setChars(response.data.results);
       })
       .catch(error => {

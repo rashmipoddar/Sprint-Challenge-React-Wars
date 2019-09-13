@@ -12,7 +12,7 @@ const Character = (props) => {
         <CardTitle>Birth Year: {props.birthYear}</CardTitle>
         <CardTitle>Height: {props.height}</CardTitle>
         <CardTitle>Mass: {props.mass}</CardTitle>
-        {/* <CardText>Acted in {props.name} films</CardText>    */}
+        <CardText>Acted in {props.films} film(s)</CardText>   
       </CardBody>
       </Card>
     </Col>
